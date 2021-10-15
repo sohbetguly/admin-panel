@@ -1,4 +1,4 @@
-const myUsername = 'sohbetguly'
+const myUsername = 'sohbet'
 const myPassword = 'sohbet'
 
 // const logKey = {
