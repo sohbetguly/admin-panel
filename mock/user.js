@@ -1,3 +1,11 @@
+const myUsername = 'sohbetguly'
+const myPassword = 'sohbet'
+
+// const logKey = {
+//   admin: {
+//     token: 'admin-token'
+//   }
+// }
 
 const tokens = {
   admin: {
@@ -7,8 +15,6 @@ const tokens = {
     token: 'editor-token'
   }
 }
-const myUsername = 'admin'
-const myPassword = '1234567'
 
 const users = {
   'admin-token': {
@@ -32,24 +38,26 @@ module.exports = [
     type: 'post',
     response: config => {
       const { username } = config.body
-      const token = tokens[username]
-      if (myPassword !== config.body.password || myUsername !== config.body.username) {
+      const { password } = config.body
+      // const token = tokens[username]
+      if (myPassword !== password || myUsername !== username) {
         return {
           code: 60204,
           message: 'Ulanyjy adňyz ýa-da açar sözüňiz nädogry.'
         }
       }
       // mock error
-      if (!token) {
-        return {
-          code: 60204,
-          message: 'Ulanyjy adňyz ýa-da açar sözüňiz nädogry.'
-        }
-      }
+      // if (!token) {
+      //   return {
+      //     code: 60204,
+      //     message: 'Ulanyjy adňyz nädogry.'
+      //   }
+      // }
 
       return {
         code: 20000,
-        data: token
+        data: tokens['admin']
+        // data: token
       }
     }
   },
